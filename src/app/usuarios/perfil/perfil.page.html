@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Perfil do Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <section text-center>
+    <ion-icon name="person"></ion-icon>
+    <h1>Bem Vindo, <br> 
+       {{ user.name }}
+       <br>
+       <br>
+    </h1>
+  </section>
+  <ion-button expand="block" color="danger" [routerLink]="['/usuarios/lista-pedidos']"><b>Meus Pedidos</b></ion-button>
+  <ion-button expand="block" color="medium" [routerLink]="['/usuarios/enderecos']">Meus Endereços</ion-button> 
+  <ion-button expand="block" color="medium" [routerLink]="['/usuarios/sobre']"> Sobre </ion-button>
+  <br>
+  <br>
+  <ion-button expand="block" color="dark" (click)="sair()">
+  <ion-icon class="eaemn" md="ios-log-out"  color="gold" slot="start"></ion-icon>
+   Sair 
+  </ion-button>
+   
+   
+</ion-content>

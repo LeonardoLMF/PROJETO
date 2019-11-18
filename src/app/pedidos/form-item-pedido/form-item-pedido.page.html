@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Comprar Novo Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h2><img  class="img-responsive" [src]="produto.img"/></h2>
+  <h1 text-bold>{{ produto.nome }}</h1>
+  <pre text-wrap>{{ produto.descricao }}</pre>
+  <h5><app-valor [valor]="produto.preco"></app-valor></h5>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <ion-item>
+      <ion-label position="stacked">Quantidade</ion-label>
+      <ion-input type="number" min="0" step="1" formControlName="quantidade" (ionChange)="executaCalcularTotal()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" color="dark" (click)="adicionarQuantidade()">
+              <ion-icon name="add"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" color="dark" (click)="removerQuantidade()">
+              <ion-icon name="remove"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+      
+    <ion-item>
+      <ion-label position="stacked">Observação: </ion-label>
+      <ion-textarea formControlName="observacao"></ion-textarea>
+    </ion-item>
+
+    <ion-item text-center>
+      <ion-label>
+        <h2>Total : <app-valor [valor]="total"></app-valor></h2>
+      </ion-label>
+    </ion-item>
+
+    <div margin-vertical>
+      <ion-button expand="block" type="submit" color="dark">Adicionar ao carrinho</ion-button>
+    </div>
+  </form>
+</ion-content>

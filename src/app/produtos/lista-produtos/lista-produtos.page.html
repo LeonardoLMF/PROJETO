@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-grid>
+        <ion-row>
+         
+          <ion-col size="10">
+              <ion-searchbar></ion-searchbar>
+          </ion-col>
+
+          <ion-col size="2">
+            <ion-fab  *ngIf="carrinhoPossuiItens">
+                  <ion-fab-button [routerLink]="['/pedido/carrinho']" color="dark">
+                     <ion-icon name="cart" color="light"></ion-icon>
+                  </ion-fab-button>
+            </ion-fab> 
+          </ion-col>
+
+      </ion-row>
+   </ion-grid>
+    
+  </ion-toolbar>
+     
+</ion-header>
+
+<ion-content padding >
+   
+     <ion-list>
+       <ion-item>
+          <ion-label class="categoriaLabel"><b>Categorias</b></ion-label>
+        <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
+          <ion-select-option value="" [selected]="true">Todas</ion-select-option>
+          <ion-select-option *ngFor="let categoria of categorias | async" [value]="categoria.key">{{ categoria.nome }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-item *ngFor="let produto of produtos | async" (click)="adicionarProduto(produto.key)">
+          <img [src]="produto.img" slot="start" *ngIf="produto.img" class="imagemFoto"/>
+          <ion-label text-wrap>
+                <h1>{{ produto.nome }}</h1>
+                <h2>{{ produto.categoriaNome }}</h2>
+                <p>{{ produto.descricao }}</p><br>
+                <!-- <span>{{ produto.preco | currency:'BRL' }}</span> -->
+          <app-valor [valor]="produto.preco"></app-valor>
+             
+          </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
