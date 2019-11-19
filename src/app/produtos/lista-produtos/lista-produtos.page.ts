@@ -16,6 +16,7 @@ export class ListaProdutosPage implements OnInit {
   produtos: Observable<any[]>;
   categorias: Observable<any[]>;
   categoriaSelecionada: string;
+  produto: string;
   carrinhoPossuiItens: boolean = false;
   produtinhos: Observable<any[]>;
 
@@ -40,6 +41,9 @@ export class ListaProdutosPage implements OnInit {
   adicionarProduto(produtoKey: string){
     this.router.navigate(['pedido/carrinho/novo-item/', produtoKey]);
   }
+ 
+  getProprietario(){
+    this.produtos = this.produtosService.getByCustomers(this.produto);
+}
   
-
 }
