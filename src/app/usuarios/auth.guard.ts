@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Rout
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { take, map, tap } from 'rxjs/operators';
+import { UsuariosService } from 'appfinal/src/app/usuarios/shared/usuarios.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,7 @@ export class AuthGuard implements CanActivate {
       )
     }
 
+
 }
+
+

@@ -44,6 +44,6 @@ export class ListaProdutosPage implements OnInit {
  
   getProprietario(){
     this.produtos = this.produtosService.getByCustomers(this.produto);
-}
+  }
   
 }
