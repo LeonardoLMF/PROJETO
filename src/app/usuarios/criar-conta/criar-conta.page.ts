@@ -32,7 +32,7 @@ export class CriarContaPage implements OnInit {
       nome: ['', [Validators.required,Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required]
-    });
+    }); 
   }  
 
   onSubmit(){

@@ -85,5 +85,17 @@ export class UsuariosService {
 
     return mensagem;
   }
-    
+
+//   insert(produto: any) {
+//     // return this.produtosRef.push(produto);
+//     return this.save(produto, null);
+//   }
+
+//   update(produto: any, key: string) {
+//     // return this.produtosRef.update(key, produto);
+//     return this.save(produto, key);
+//   }
+// }
+
 }
+
