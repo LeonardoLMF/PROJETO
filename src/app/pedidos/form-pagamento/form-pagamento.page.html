@@ -12,47 +12,52 @@
     <ion-list>
       <!-- Grupo forma de pagamento -->
       <ion-item-group>
-        <ion-item-divider  color="dark">
-          <ion-label>
-            Pague na entrega
-          </ion-label>
-        </ion-item-divider>
-        <ion-item  color="dark">
-          <ion-label>Forma de pagamento</ion-label>
-          <ion-select formControlName="formPagamento">
-            <ion-select-option value="" [selected]="true">- Escolha -</ion-select-option>
-            <ion-select-option *ngFor="let formPagamento of formasPagamento" [value]="formPagamento.valor">{{
-              formPagamento.descricao }}</ion-select-option>
-          </ion-select>
-        </ion-item>
 
-        <!-- se for dinheiro -->
-        <ion-item *ngIf="form.value.formPagamento == 1">
-          <ion-label>Troco para</ion-label>
-          <ion-input type="number" step="1" formControlName="trocoPara"></ion-input>
-        </ion-item>
+          <ion-item-divider>
+            <ion-label class="entrega">
+              Pague na entrega
+             </ion-label>
+          </ion-item-divider>
 
-        <!-- se for cartão -->
-        <ion-item *ngIf="form.value.formPagamento == 2">
-          <ion-label>Qual cartão</ion-label>
-          <ion-select formControlName="tipoCartao">
-            <ion-select-option value="" [selected]="true">- Escolha -</ion-select-option>
-            <ion-select-option value="Crédito - Visa">Crédito - Visa</ion-select-option>
-            <ion-select-option value="Crédito - Mastercard">Crédito - Mastercard</ion-select-option>
-            <ion-select-option value="Débito - Visa">Débito - Visa</ion-select-option>
-            <ion-select-option value="Débito - Mastercard">Débito - Mastercard</ion-select-option>
-          </ion-select>
-        </ion-item>
+
+
+          <ion-item>
+            <ion-label>Forma de pagamento</ion-label>
+            <ion-select formControlName="formPagamento">
+              <ion-select-option value="" [selected]="true">- Escolha -</ion-select-option>
+              <ion-select-option *ngFor="let formPagamento of formasPagamento" [value]="formPagamento.valor">{{
+                formPagamento.descricao }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <!-- se for dinheiro -->
+          <ion-item *ngIf="form.value.formPagamento == 1">
+            <ion-label>Troco para</ion-label>
+            <ion-input type="number" step="1" formControlName="trocoPara"></ion-input>
+          </ion-item>
+
+          <!-- se for cartão -->
+          <ion-item *ngIf="form.value.formPagamento == 2">
+            <ion-label>Qual cartão</ion-label>
+            <ion-select formControlName="tipoCartao">
+              <ion-select-option value="" [selected]="true">- Escolha -</ion-select-option>
+              <ion-select-option value="Crédito - Visa">Crédito - Visa</ion-select-option>
+              <ion-select-option value="Crédito - Mastercard">Crédito - Mastercard</ion-select-option>
+              <ion-select-option value="Débito - Visa">Débito - Visa</ion-select-option>
+              <ion-select-option value="Débito - Mastercard">Débito - Mastercard</ion-select-option>
+            </ion-select>
+          </ion-item>
+
       </ion-item-group>
 
       <!-- Grupo endereço de entrega -->
       <ion-item-group>
-        <ion-item-divider color="dark">
-          <ion-label>
+        <ion-item-divider>
+          <ion-label class="entrega">
             Endereço de entrega
           </ion-label>
         </ion-item-divider>
-        <ion-item  color="dark">
+        <ion-item  >
           <ion-label>
             <ion-grid>
               <ion-row align-items-center>
@@ -70,17 +75,17 @@
 
       <!-- Grupo produtos do pedido -->
       <ion-item-group>
-        <ion-item-divider color="dark">
-          <ion-label >
+        <ion-item-divider >
+          <ion-label class="entrega">
             Pedido
           </ion-label>
         </ion-item-divider>
-        <ion-item *ngFor="let produto of produtos | async"  color="dark">
+        <ion-item *ngFor="let produto of produtos | async"  >
           <ion-label>
             <ion-grid>
               <ion-row>
                 <ion-col size="9" text-wrap>
-                  {{ produto.produtoNome }}
+                    {{ produto.produtoNome }}
                 </ion-col>
                 <ion-col size="3" text-right>{{ produto.quantidade }}</ion-col>
               </ion-row>

@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { finalize } from 'rxjs/operators';
+import { AngularFireList } from '@angular/fire/database';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
-
+  usuariosRef: AngularFireList<any>;
   constructor(private afAuth:AngularFireAuth) { }
 
   criarConta(usuario: any) {
@@ -86,16 +89,19 @@ export class UsuariosService {
     return mensagem;
   }
 
-//   insert(produto: any) {
-//     // return this.produtosRef.push(produto);
-//     return this.save(produto, null);
-//   }
+  // uploadImg(key: string, file: File) {
+  //   const filePath = 'usuarios/'+key;
+  //   const ref = this.storage.ref(filePath);
+  //   const task = ref.put(file);
+  //   task.snapshotChanges().pipe(
+  //     finalize( () => {
+  //       ref.getDownloadURL().subscribe(url => {
+  //         this.usuariosRef.update(key, {img: url, filePath: filePath })
+  //       })
+  //     })
+  //   ).subscribe();
+  // }
 
-//   update(produto: any, key: string) {
-//     // return this.produtosRef.update(key, produto);
-//     return this.save(produto, key);
-//   }
-// }
 
 }
 
