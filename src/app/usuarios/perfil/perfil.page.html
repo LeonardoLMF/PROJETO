@@ -9,7 +9,7 @@
     
   <section text-center>
     <ion-icon name="person"></ion-icon>
-    <h1>Bem Vindo, <br>
+    <h1>Welcome, <br>
 
       {{ user.img }}
       {{ user.name }}
@@ -22,7 +22,7 @@
     
   <ion-button expand="block" color="amarelao" [routerLink]="['/usuarios/lista-pedidos']"><b>Meus Pedidos</b></ion-button>
   <ion-button expand="block" color="dark" [routerLink]="['/usuarios/enderecos']">Meus Endereços</ion-button> 
-  <ion-button expand="block" color="dark" [routerLink]="['/usuarios/sobre']"> Sobre </ion-button>
+  <ion-button expand="block" color="dark" [routerLink]="['/usuarios/sobre']"> Informações da Conta </ion-button>
   <br>
   <br>
   <ion-button expand="block" color="dark" (click)="sair()">

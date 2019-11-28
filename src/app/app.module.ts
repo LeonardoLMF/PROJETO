@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -15,6 +14,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { firebaseconfig } from '../firebase-config';
+import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { firebaseconfig } from '../firebase-config';
     AngularFireModule.initializeApp(firebaseconfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule
+    
    ],
     providers: [
     StatusBar,

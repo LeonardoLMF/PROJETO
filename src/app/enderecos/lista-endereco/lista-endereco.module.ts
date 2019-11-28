@@ -1,10 +1,10 @@
-import { SharedModule } from './../../core/shared/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ListaEnderecoPage } from './lista-endereco.page';
+import { SharedModule } from 'src/app/core/shared/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -17,8 +17,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     SharedModule,
-    RouterModule.forChild(routes),
-    ReactiveFormsModule
+    RouterModule.forChild(routes)
   ],
    declarations: []
 })

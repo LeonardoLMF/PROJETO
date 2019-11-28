@@ -1,10 +1,11 @@
-import { ToastService } from 'src/app/core/shared/toast.service';
-import { AlertService } from './../../core/shared/alert.service';
-import { EnderecoService } from './../shared/endereco.service';
+
 import { Component, OnInit, Input } from '@angular/core';
 import {  Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ModalController } from '@ionic/angular';
+import { EnderecoService } from 'appfinal/src/app/enderecos/shared/endereco.service';
+import { ToastService } from 'appfinal/src/app/core/shared/toast.service';
+import { AlertService } from 'appfinal/src/app/core/shared/alert.service';
 
 @Component({
   selector: 'app-lista-endereco',
@@ -16,6 +17,7 @@ export class ListaEnderecoPage implements OnInit {
 
    enderecos: Observable<any[]>;
    @Input()
+   
    selecionarEndereco: boolean = false;
 
 
