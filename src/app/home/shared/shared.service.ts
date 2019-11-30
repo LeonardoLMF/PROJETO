@@ -23,4 +23,17 @@ export class SharedService {
       })
     )
   }
+
+  getAllPromocao() {
+
+    return this.db.list(FirebasePath.PRODUTOS, q => {
+
+      return q.orderByChild('produtosPromocao').equalTo('sim');
+
+    }).snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(m => ({key: m.payload.key, ...m.payload.val() }));
+      })
+    )
+  }
 }

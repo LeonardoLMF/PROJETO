@@ -11,6 +11,7 @@ import { SharedService } from '../shared/shared.service';
 export class ListaHomePage implements OnInit {
   
   produtos: Observable<any[]>;
+  promocao: Observable<any[]>;
 
     slideOpts = {
       initialSlide: 1,
@@ -23,6 +24,7 @@ export class ListaHomePage implements OnInit {
 
   ngOnInit() {
     this.produtos = this.sharedService.getAll();
+    this.promocao = this.sharedService.getAllPromocao();
   }
 
   adicionarProduto(produtoKey: string){
