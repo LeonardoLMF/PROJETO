@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="amarelao">
-      <ion-title ion-text-center color="dark"><b>Inicio</b></ion-title>
+      <ion-title ion-text-center color="dark"><b>Kaze<span class="store">Store</span></b></ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -60,15 +60,19 @@
 
                         <ion-row>
                               <ion-card-title> {{produto.nome}} </ion-card-title>
+                                            
                         </ion-row>
 
                             <br>
 
                         <ion-row class="precoEs">
-                              <app-valor [valor]="produto.preco"></app-valor>
+                          <S><app-valorpromo [precoPromocao]="produto.promocaoPreco"> </app-valorpromo></S>
+                          <ion-card-subtitle><app-valor [valor]="produto.preco"></app-valor></ion-card-subtitle> 
                        </ion-row>
 
-            </ion-card-header>     
+                      
+            </ion-card-header>
+
           </ion-card>
       </ion-col>   
   </ion-row>

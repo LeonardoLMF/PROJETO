@@ -22,10 +22,13 @@
 
     
     ion-title {
-        font-size: 20px;
+        font-size: 40px;
         vertical-align: middle;
         text-align: left;
         padding-top: 15px;
+        padding-right: 15px;
+        margin-left: 65px;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
     .imagemHome{
@@ -45,6 +48,13 @@
        height: 40px;
        background-image: url('../../../assets/img/preto.jfif');
    }
-
+   
+   .precoEs{
+       color: red;
+   }
+  
+   .store{
+   color: white;
+   }
 
    

@@ -5,9 +5,10 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValorComponent } from '../valor/valor.component';
 import { ListaEnderecoPage } from 'src/app/enderecos/lista-endereco/lista-endereco.page';
+import { ValorpromoComponent } from '../valorpromo/valorpromo.component';
 
 @NgModule({
-  declarations: [ValorComponent, ListaEnderecoPage],
+  declarations: [ValorComponent, ListaEnderecoPage,ValorpromoComponent],
   imports: [
     CommonModule,
     IonicModule,
@@ -20,8 +21,9 @@ import { ListaEnderecoPage } from 'src/app/enderecos/lista-endereco/lista-endere
     RouterModule,
     ReactiveFormsModule,
     ValorComponent,
-    ListaEnderecoPage
+    ListaEnderecoPage,
+    ValorpromoComponent
   ],
-  entryComponents: [ValorComponent, ListaEnderecoPage]
+  entryComponents: [ValorComponent, ListaEnderecoPage,ValorpromoComponent]
 })
 export class SharedModule { }

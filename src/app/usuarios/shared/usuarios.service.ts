@@ -9,7 +9,7 @@ import { AngularFireList } from '@angular/fire/database';
 })
 export class UsuariosService {
   usuariosRef: AngularFireList<any>;
-  constructor(private afAuth:AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth) { }
 
   criarConta(usuario: any) {
     return new Promise((resolve, reject) => {
