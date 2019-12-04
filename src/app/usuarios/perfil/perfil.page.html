@@ -5,11 +5,10 @@
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="formImg">
-    
+  
   <section text-center>
       <ion-icon name="person"></ion-icon>
-      <h1>Welcome, <br>
+      <h1>Seja Bem Vindo, <br>
 
         {{ user.img }}
         {{ user.name }}
@@ -18,7 +17,6 @@
         <br>
       </h1>
   </section>
-    </form>
     
   <ion-button expand="block" color="amarelao" [routerLink]="['/usuarios/lista-pedidos']"><b>Meus Pedidos</b></ion-button>
   <ion-button expand="block" color="dark" [routerLink]="['/usuarios/enderecos']">Meus Endereços</ion-button> 

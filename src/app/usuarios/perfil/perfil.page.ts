@@ -22,14 +22,15 @@ export class PerfilPage implements OnInit {
   constructor(private usuariosService: UsuariosService, private afAuth: AngularFireAuth,
               private router: Router, private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
-    this.user = this.usuariosService.getDadosUsuario();
-    console.log(this.user);
-    this.userId = this.afAuth.auth.currentUser.uid;
-    console.log(this.userId);
-    this.formularioImagem();
-    console.log(this.formularioImagem);
-  }
+              ngOnInit() {
+                this.afAuth.auth.onAuthStateChanged(user => {
+                  if (!user) {
+                    this.router.navigate(['/login']);
+                  } else {
+                this.user = this.usuariosService.getDadosUsuario();
+                }
+              });
+            }
 
   sair() {
     this.usuariosService.logout()

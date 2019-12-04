@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastService } from 'src/app/core/shared/toast.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-form-item-pedido',
@@ -19,7 +20,8 @@ total: number = 0;
   constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,
               private router: Router, private produtosService: ProdutosService,
               private carrinhoService: CarrinhoService,
-              private toast: ToastService) { }
+              private toast: ToastService,
+              private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.criarFormulario();
@@ -80,14 +82,21 @@ total: number = 0;
     this.form.patchValue({quantidade: quantidade, total: this.total});
   }
 
-  onSubmit(
-  ){if (this.form.valid){
-    this.carrinhoService.insert(this.form.value)
-    .then(() =>{this.toast.show('Produto Adicionado com sucesso ao carrinho');
-     this.router.navigate(['/tabs/produtos']);
-  })
-  }
-
+  onSubmit() {
+    this.afAuth.auth.onAuthStateChanged(user => {
+      if (!user) {
+        this.toast.show('É Necessario Efetuar Login ou Criar uma conta');
+        this.router.navigate(['/login']);
+      } else {
+          if  (this.form.valid) {
+            this.carrinhoService.insert(this.form.value)
+            .then( () => {
+              this.toast.show('Produto adicionado com sucesso');
+              this.router.navigate(['/tabs/produtos']);
+            });
+          }
+      }
+    });
   }
 
 }

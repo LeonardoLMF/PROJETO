@@ -6,7 +6,9 @@ import { AuthGuard } from './usuarios/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthGuard]
+    loadChildren: './tabs/tabs.module#TabsPageModule'
+    // , 
+    // canActivate: [AuthGuard]
 
   },
 
