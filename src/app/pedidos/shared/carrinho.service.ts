@@ -16,7 +16,7 @@ export class CarrinhoService {
     const path = `${FirebasePath.CARRINHO}/${FirebasePath.PRODUTOS}`;
     return this.db.list(path);
     }
-    
+
    insert(itemProduto: any){
     return this.getCarrinhoProdutosRef().push(itemProduto);
 
