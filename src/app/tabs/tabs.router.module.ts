@@ -64,10 +64,7 @@ const routes: Routes = [
         loadChildren: '../enderecos/form-endereco/form-endereco.module#FormEnderecoPageModule'
       },
 
-      {
-        path: 'sobre',
-        loadChildren: '../usuarios/sobre/sobre.module#SobrePageModule'
-      },
+
 
       { 
         path: 'lista-pedidos',
